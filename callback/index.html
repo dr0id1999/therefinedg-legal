@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Connecting&hellip; &ndash; RefinedOps Publisher</title><link rel="stylesheet" href="../style.css"></head><body>
+<h1>Finishing TikTok sign-in&hellip;</h1>
+<p id="msg">Handing the sign-in back to RefinedOps on this computer.</p>
+<script>
+(function(){
+  var q = window.location.search || "";
+  var p = new URLSearchParams(q);
+  if (!p.get("code") && !p.get("error")) { document.getElementById("msg").textContent = "No sign-in code was received. Close this tab and try again."; return; }
+  // Nothing is stored or sent anywhere except the local RefinedOps listener on this same computer.
+  window.location.replace("http://127.0.0.1:8767/tiktok/callback" + q);
+})();
+</script>
+<p class="muted">If nothing happens, make sure <code>python -m refinedops.tiktok_auth login</code> is running on this computer.</p>
+</body></html>
